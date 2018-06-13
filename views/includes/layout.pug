@@ -1,0 +1,33 @@
+include ./components/navigation_off_canvas.pug
+
+doctype html
+html(lang="es")
+	head
+		meta(charset="utf-8")
+		meta(name="viewport", content="width=device-width,initial-scale=1")
+		title= title
+		link(rel="stylesheet", href="/bootstrap.min.css")
+		link(rel="stylesheet", href="/style.css")
+
+
+	body
+		//- +navigationOffCanvas([ ['Inicio', '/inicio'], ['Acerca', '/acerca'], ['Modelos', '/modelos'], ['Precio', '/precio'], ['Ubicacion', '/ubicacion'] ])
+		
+
+		//- creación de barra de navegación
+		<ul class="nav justify-content-center">
+		<li class="nav-item">
+			<a class="nav-link active" href="/inicio">Inicio</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/acerca">Acerca de nosotros</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/modelos">Modelos</a>
+		</li>
+		<li class="nav-item">
+			<a class="nav-link" href="/login">Login</a>
+		</li>
+		</ul>
+		block content
+		script(src="/script.js")

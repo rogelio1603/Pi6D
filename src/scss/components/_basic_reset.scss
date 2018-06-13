@@ -1,0 +1,43 @@
+
+$font: 'Montserrat', sans-serif;
+$font-size: 16px;
+
+html {
+  box-sizing: border-box;
+  font-family: $font;
+  font-size: $font-size;
+}
+
+*,
+*:after,
+*:before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: linear-gradient(rgb(50, 52, 53), #171226);
+  color: #fff;
+}
+pre {
+  color: white;
+}
+
+a {
+  color: #FFF;
+  transition: all .3s ease-out;
+
+  &:hover {
+    color: #0096D9;
+    opacity: .75;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

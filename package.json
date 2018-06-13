@@ -1,0 +1,41 @@
+{
+    "name": "crud-nodejs-mysql",
+    "version": "1.0.0",
+    "description": "En este proyecto desarrollaremos una aplicación web CRUD con node.js, Express y MySQL",
+    "main": "app.js",
+    "scripts": {
+        "babel": "babel -w ./src/js/ -d ./public/",
+        "browserify": "browserify ./src/js/index.js -d -o ./public/script.js -t [ babelify --presets [ env ] ]",
+        "watchify": "watchify ./src/js/index.js -d -o ./public/script.js -t [ babelify --presets [ env ] ] -v",
+        "sass": "node-sass -w --importer node_modules/node-sass-package-importer/dist/cli.js -o ./public/ ./src/scss/*.scss",
+        "server": "supervisor server.js",
+        "built": "parallelshell \"npm run sass\" \"npm run server\" \"npm run watchify\"",
+        "start": "npm run built"
+    },
+    "author": "Rogelio Oseguera de la Cruz <roseguera@ucol.mx>",
+    "license": "MIT",
+    "dependencies": {
+        "body-parser": "^1.18.2",
+        "express": "^4.16.3",
+        "express-method-override": "0.0.3",
+        "hammerjs": "^2.0.8",
+        "morgan": "^1.9.0",
+        "mysql": "^2.15.0",
+        "pug": "^2.0.3",
+        "serve-favicon": "^2.5.0"
+    },
+    "devDependencies": {
+        "babel": "^6.23.0",
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.7.0",
+        "babelify": "^8.0.0",
+        "browserify": "^16.2.2",
+        "node-sass": "^4.9.0",
+        "node-sass-package-importer": "^5.1.3",
+        "nodemon": "^1.17.5",
+        "parallelshell": "^3.0.2",
+        "sass": "^1.5.1",
+        "supervisor": "^0.12.0",
+        "watchify": "^3.11.0"
+    }
+}

@@ -1,0 +1,39 @@
+extends ./includes/layout.pug
+
+block content
+    section.container
+        h1.header= title
+        img(src="indentation-war.png")
+        article.item
+            div
+                a.btn.btn-primary(href="/agregar") Agregar
+            if(data.length)
+                table.table
+                    tr
+                        th.col Nombre
+                        th.col Twitter
+                        th.col País
+                        th.col Equipo
+                        th.col
+                        th.col
+                    each contacto in data
+                        tr
+                            td #{contacto.name}
+                            td #{contacto.twitter}
+                            td #{contacto.country}
+                            td #{contacto.side}
+                            td
+                                a.btn.btn-secondary(href="/editar/"+ contacto.id) Editar
+                            td
+                                form(method="post", action="/eliminar/"+ contacto.id)
+                                    input(type="hidden",name="_method", value="DELETE")
+                                    input.btn.btn-danger(type="button", value="Eliminar", onclick="eliminar(this)")
+                script.
+                    function eliminar(input){
+                        let deleteOK = confirm('¿Estás seguro de eliminar el registro'); // funcion Dos botones aceptar y rechazar
+                        return (deleteOK) ? input.parentNode.submit() : false;
+                        //ParentNode es saber su padre
+                    }
+            else
+                div.error No tienes contactos que mostrar
+
